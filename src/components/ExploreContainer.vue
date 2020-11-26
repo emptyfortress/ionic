@@ -6,13 +6,12 @@
 </template>
 
 <script>
-	
-	export default {
-		name: 'ExploreContainer',
-		props: {
-			name: String
-		}
+export default {
+	name: 'ExploreContainer',
+	props: {
+		name: String
 	}
+}
 </script>
 
 <style scoped>
