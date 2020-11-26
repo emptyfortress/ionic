@@ -1,20 +1,14 @@
-<template>
-<ion-page>
-	<ion-header>
-		<ion-toolbar>
-			<ion-title>Tab 3</ion-title>
-		</ion-toolbar>
-	</ion-header>
-	<ion-content :fullscreen="true">
-		<ion-header collapse="condense">
-			<ion-toolbar>
-				<ion-title size="large">Tab 3</ion-title>
-			</ion-toolbar>
-		</ion-header>
+<template lang="pug">
+ion-page
+	ion-header
+		ion-toolbar
+			ion-title Tab 1
+	ion-content(:fullscreen="true")
+		ion-header(collapse="condense")
+			ion-toolbar
+				ion-title(size="large") Tab 3
 		
-		<ExploreContainer name="Tab 3 page" />
-	</ion-content>
-</ion-page>
+		ExploreContainer( name="Tab 3 page" )
 </template>
 
 <script>
