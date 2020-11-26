@@ -1,7 +1,7 @@
 <template lang="pug">
 ion-page
 	ion-header
-		ion-toolbar
+		ion-toolbar.tt
 			ion-title Tab 1
 	ion-content(:fullscreen="true")
 		ion-header(collapse="condense")
@@ -20,3 +20,12 @@ export default  {
 	components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
 }
 </script>
+
+<style scoped lang="scss">
+/* @import '@/assets/css/colors.scss'; */
+.tt {
+	--background: #ccc;
+	
+}
+
+</style>

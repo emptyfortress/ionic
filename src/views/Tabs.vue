@@ -1,7 +1,7 @@
 <template lang="pug">
 ion-page
 	ion-tabs
-		ion-tab-bar( slot="bottom" )
+		ion-tab-bar( slot="bottom").tt
 			ion-tab-button(tab="tab1" href="/tabs/tab1")
 				ion-icon(:icon="triangle")
 				ion-label Tab 1
@@ -31,3 +31,10 @@ export default {
 	}
 }
 </script>
+
+<style scoped lang="scss">
+/* @import '@/assets/css/colors.scss'; */
+.tt {
+	--background: #ddd;
+}
+</style>
