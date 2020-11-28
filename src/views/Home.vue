@@ -7,27 +7,27 @@ ion-page
 
 <script>
 import {IonPage, IonContent, IonButton} from '@ionic/vue'
-import { createAnimation, Animation } from '@ionic/core'
+// import useAnimation from '@/animations/move'
+import { ref, onMounted } from 'vue'
+import { createAnimation } from '@ionic/core'
+
 
 export default {
 	components: {IonPage, IonContent, IonButton},
-	data () {
-		return {
-			animation: null
+	setup () {
+		const animation = ref(null)
+		onMounted(() => {
+			animation.value = createAnimation()
+				.addElement(document.querySelector('.square'))
+				.duration(1500)
+				.iterations(Infinity)
+				.fromTo('transform', 'translateX(0px)', 'translateX(100px)')
+				.fromTo('opacity', '1', '0.2');
+		})
+		const play = () => {
+			animation.value.play()
 		}
-	},
-	mounted() {
-		this.animation = createAnimation()
-			.addElement(document.querySelector('.square'))
-			.duration(1500)
-			.iterations(Infinity)
-			.fromTo('transform', 'translateX(0px)', 'translateX(100px)')
-			.fromTo('opacity', '1', '0.2');
-	},
-	methods: {
-		play () {
-			this.animation.play()
-		}
+		return { play }
 	}
 }
 
