@@ -8,24 +8,21 @@ ion-page
 
 <script>
 import {IonPage, IonContent, IonButton} from '@ionic/vue'
-import { useAnimation } from '@/animations/move'
+import useAnimation from '@/animations/move'
 import { ref, onMounted } from 'vue'
-// import { createAnimation } from '@ionic/core'
-
 
 export default {
 	components: {IonPage, IonContent, IonButton},
 	setup () {
 		const animation = ref(null)
 		onMounted(() => {
-			animation.value = useAnimation
+			animation.value = useAnimation()
 		});
 		const play = () => {
-			debugger
 			animation.value.play()
 		}
 		const stop = () => {
-			animation.value.stop()
+			animation.value.pause()
 		}
 		return { play, stop }
 	}
