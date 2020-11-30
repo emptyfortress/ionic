@@ -1,15 +1,16 @@
 <template lang="pug">
 ion-page
 	ion-content
-		ion-button(@click="play") test
+		ion-button(@click="play") play
+		ion-button(@click="stop") stop
 		.square
 </template>
 
 <script>
 import {IonPage, IonContent, IonButton} from '@ionic/vue'
-// import useAnimation from '@/animations/move'
+import { useAnimation } from '@/animations/move'
 import { ref, onMounted } from 'vue'
-import { createAnimation } from '@ionic/core'
+// import { createAnimation } from '@ionic/core'
 
 
 export default {
@@ -17,17 +18,16 @@ export default {
 	setup () {
 		const animation = ref(null)
 		onMounted(() => {
-			animation.value = createAnimation()
-				.addElement(document.querySelector('.square'))
-				.duration(1500)
-				.iterations(Infinity)
-				.fromTo('transform', 'translateX(0px)', 'translateX(100px)')
-				.fromTo('opacity', '1', '0.2');
-		})
+			animation.value = useAnimation
+		});
 		const play = () => {
+			debugger
 			animation.value.play()
 		}
-		return { play }
+		const stop = () => {
+			animation.value.stop()
+		}
+		return { play, stop }
 	}
 }
 
