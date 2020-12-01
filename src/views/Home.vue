@@ -14,20 +14,13 @@ import { ref, onMounted } from 'vue'
 export default {
 	components: {IonPage, IonContent, IonButton},
 	setup () {
-		const animation = ref(null)
-		onMounted(() => {
-			animation.value = useAnimation()
-		});
-		const play = () => {
-			animation.value.play()
-		}
-		const stop = () => {
-			animation.value.pause()
-		}
+		const animation = ref({})
+		onMounted(() => animation.value = useAnimation());
+		const play = () => animation.value.play()
+		const stop = () => animation.value.pause()
 		return { play, stop }
 	}
 }
-
 </script>
 
 <style scoped lang="scss">
